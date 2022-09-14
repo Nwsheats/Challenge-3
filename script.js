@@ -10,12 +10,23 @@ var numericChar = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const Characters = lowerCase.concat(upperCase, specialChar, numericChar);
 console.log(Characters);
 
+
+
+
+
+
 var generateBtn = document.querySelector("#generate");
 
 
 
 // Write password to the #password input
 function writePassword() {
+  var lchoice = prompt("Would you like to generate Lowercase letters?");
+  var uchoice = prompt("Would you like to generate Uppercase letters?");
+  var schoice = prompt("Would you like to generate Special Characters?");
+  var nchoice = prompt("Would you like to generate Numbers?");
+  console.log("User has chosen " + lchoice + " and " + uchoice + " and " + schoice + " and " +
+  nchoice);
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -23,7 +34,6 @@ function writePassword() {
 
 }
 
-console.log(Characters);
 
 
 // Add event listener to generate button
