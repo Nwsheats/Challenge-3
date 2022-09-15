@@ -12,12 +12,15 @@ console.log(Characters);
 
 
 
-
-
-
 var generateBtn = document.querySelector("#generate");
 
+var randPass = Math.random() * Characters.length
 
+var randNum = Math.floor(randPass)
+
+var passChoice = Characters[randNum]
+
+console.log("Password is ", passChoice)  
 
 // Write password to the #password input
 function writePassword() {
@@ -27,14 +30,22 @@ function writePassword() {
   var nchoice = prompt("Would you like to generate Numbers?");
   console.log("User has chosen " + lchoice + " and " + uchoice + " and " + schoice + " and " +
   nchoice);
-  var password = generatePassword();
+
+
+  
+  } 
+
+  var password = generatePassword(length: 8);
+    let password = '';
+    let passwordLength = length;
+
+
+
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
