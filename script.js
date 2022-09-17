@@ -5,8 +5,13 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword() {
   var password = ""
   var size = prompt("How many characters?")
-  if (size < 8 || size > 128) {
+  var sizeInt = parseInt(size)
+  if (sizeInt < 8 || sizeInt > 128) {
     alert("You must choose a value between 8 and 128!");
+    return generatePassword();
+  }
+  if (Number.isNaN(sizeInt)) {
+    alert("You must choose a number!")
     return generatePassword();
   }
   var lchoice = false;
@@ -23,7 +28,7 @@ function generatePassword() {
     }
   }
   const Characters = DecisionArray(lchoice, uchoice, schoice, nchoice);
-  for (let i = 0; i < size; i++) {
+  for (let i = 0; i < sizeInt; i++) {
     let randPass = Math.random() * Characters.length;
     let randNum = Math.floor(randPass);
     let passChoice = Characters[randNum];
